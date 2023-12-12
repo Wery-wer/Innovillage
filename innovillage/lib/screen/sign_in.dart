@@ -2,12 +2,22 @@ import 'package:flutter/material.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
+  
 
   @override
   State<SignInPage> createState() => _SignInPageState();
 }
 
 class _SignInPageState extends State<SignInPage> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  bool _obscureText = true;
+
+  void _login() async{
+    String email = emailController.text;
+    String password = passwordController.text;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +43,7 @@ class _SignInPageState extends State<SignInPage> {
                       child: Container(
                         width: 294,
                         height: 81,
-                        margin: const EdgeInsets.symmetric(horizontal: 40),
+                        margin: const EdgeInsets.symmetric(horizontal: 50),
                         alignment: Alignment.topLeft,
                         child: Stack(
                           children: [
@@ -103,6 +113,7 @@ class _SignInPageState extends State<SignInPage> {
                                         width: 210,
                                         height: 50,
                                         child: TextField(
+                                          controller: passwordController,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             border: InputBorder.none,
@@ -149,29 +160,42 @@ class _SignInPageState extends State<SignInPage> {
                                         ),
                                       ),
                                       SizedBox(
-                                        width: 17,
+                                        width: 19,
                                       ),
                                       Container(
-                                        width: 210,
-                                        height: 50,
-                                        child: TextField(
-                                          obscureText: true,
-                                          decoration: InputDecoration(
-                                            border: InputBorder.none,
-                                            hintText: 'Password',
-                                            hintStyle: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w400,
-                                              color: Color(0xff777777),
+                                      width: 245,
+                                      height: 50,
+                                      child: TextField(
+                                        controller: passwordController,
+                                        obscureText: _obscureText, // Use the _obscureText variable here
+                                        decoration: InputDecoration(
+                                          suffixIcon: Padding(
+                                            padding: const EdgeInsets.only(right: 13),
+                                            child: IconButton(
+                                              icon: Icon(
+                                                _obscureText
+                                                    ? Icons.visibility
+                                                    : Icons.visibility_off,
+                                                color: Color(0xff064469),
+                                              ),
+                                              onPressed: () {
+                                                setState(() {
+                                                  _obscureText = !_obscureText;
+                                                });
+                                              },
                                             ),
+                                          ),
+                                          border: InputBorder.none,
+                                          hintText: 'Password',
+                                          hintStyle: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400,
+                                            color: Color(0xff777777),
                                           ),
                                         ),
                                       ),
-                                      Icon(
-                                        Icons.visibility,
-                                        color: Color(0xff064469),
-                                      ),
+                                    ),
                                     ],
                                   ),
                                 ),
@@ -267,3 +291,5 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 }
+
+
