@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class loginform extends StatelessWidget {
+class loginform extends StatefulWidget {
   final TextEditingController controller;
   final String hintText;
   const loginform({super.key,
@@ -8,6 +8,12 @@ class loginform extends StatelessWidget {
     required this.controller,
   });
 
+  @override
+  State<loginform> createState() => _loginformState();
+  bool _obscureText = true;
+}
+
+class _loginformState extends State<loginform> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,11 +45,11 @@ class loginform extends StatelessWidget {
             width: 210,
             height: 50,
             child: TextField(
-              controller: controller,
+              controller: widget.controller,
               obscureText: false,
               decoration: InputDecoration(
                 border: InputBorder.none,
-                hintText: hintText,
+                hintText: 'Email or Username',
                 hintStyle: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 16,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:innovillage/widget/loginform.dart';
+import 'package:innovillage/widget/sign_inform.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -93,68 +94,7 @@ class _SignInPageState extends State<SignInPage> {
                               child: SizedBox(
                                 width: 305,
                                 height: 50,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border(
-                                      top: BorderSide(width: 2.0, color:Color(0xff064469)),
-                                      left: BorderSide(width: 2.0, color:Color(0xff064469)),
-                                      right: BorderSide(width: 2.0, color:Color(0xff064469)),
-                                      bottom: BorderSide(width: 2.0, color:Color(0xff064469))
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Container(
-                                        child: Icon(
-                                          Icons.password,
-                                          color: Color(0xff064469),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 19,
-                                      ),
-                                      Container(
-                                      width: 245,
-                                      height: 50,
-                                      child: TextField(
-                                        controller: passwordController,
-                                        obscureText: _obscureText, // Use the _obscureText variable here
-                                        decoration: InputDecoration(
-                                          suffixIcon: Padding(
-                                            padding: const EdgeInsets.only(right: 13),
-                                            child: IconButton(
-                                              icon: Icon(
-                                                _obscureText
-                                                    ? Icons.visibility
-                                                    : Icons.visibility_off,
-                                                color: Color(0xff064469),
-                                              ),
-                                              onPressed: () {
-                                                setState(() {
-                                                  _obscureText = !_obscureText;
-                                                });
-                                              },
-                                            ),
-                                          ),
-                                          border: InputBorder.none,
-                                          hintText: 'Password',
-                                          hintStyle: TextStyle(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400,
-                                            color: Color(0xff777777),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    ],
-                                  ),
-                                ),
+                                child: signinform(hintText: 'Masukkan Password', controller: passwordController)
                               ),
                             ),
                             Positioned(
