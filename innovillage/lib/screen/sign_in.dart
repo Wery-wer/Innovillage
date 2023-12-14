@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:innovillage/widget/loginform.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -21,7 +22,7 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -84,52 +85,7 @@ class _SignInPageState extends State<SignInPage> {
                               child: SizedBox(
                                 width: 305,
                                 height: 50,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border(
-                                      top: BorderSide(width: 2.0, color:Color(0xff064469)),
-                                      left: BorderSide(width: 2.0, color:Color(0xff064469)),
-                                      right: BorderSide(width: 2.0, color:Color(0xff064469)),
-                                      bottom: BorderSide(width: 2.0, color:Color(0xff064469))
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Container(
-                                        child: Icon(
-                                          Icons.person,
-                                          color: Color(0xff064469),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 17,
-                                      ),
-                                      Container(
-                                        width: 210,
-                                        height: 50,
-                                        child: TextField(
-                                          controller: passwordController,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            border: InputBorder.none,
-                                            hintText: 'Email or Username',
-                                            hintStyle: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w400,
-                                              color: Color(0xff777777),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                                child: loginform(hintText: 'Email', controller: emailController)
                               ),
                             ),
                             Positioned(
